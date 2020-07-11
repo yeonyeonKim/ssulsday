@@ -1,0 +1,28 @@
+package kr.ssulsday.cms.vo;
+
+public class CardInfoVO {
+	
+	private int post_id; 
+	private String card_title;
+	private String card_content;
+	
+	public int getPost_id() {
+		return post_id;
+	}
+	public void setPost_id(int post_id) {
+		this.post_id = post_id;
+	}
+	public String getCard_title() {
+		return card_title;
+	}
+	public void setCard_title(String card_title) {
+		this.card_title = card_title;
+	}
+	public String getCard_content() {
+		return card_content;
+	}
+	public void setCard_content(String card_content) {
+		this.card_content = card_content;
+	}
+
+}

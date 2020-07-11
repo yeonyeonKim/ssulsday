@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.ssulsday.cms.mapper.PostInfoMapper">
+
+	<insert id="insertData" parameterType="searchVO">
+		<![CDATA[
+		INSERT INTO TBL_POST_INFO(post_title, post_content, user_id, category_id,
+		username)
+		VALUES (#{post_title}, #{post_content}, #{user_id}, #{category_id},
+		#{username})
+		]]>
+	</insert>
+
+	<update id="updateData" parameterType="postInfoVO">
+		UPDATE TBL_POST_INFO SET post_title=#{post_title},
+		post_content=#{post_content}, category_id=#{category_id},
+		username=#{username}
+		WHERE post_id=#{post_id}
+	</update>
+
+	<delete id="deleteData" parameterType="postInfoVO">
+		DELETE FROM TBL_POST_INFO WHERE post_id=#{post_id}
+	</delete>
+
+	<select id="selectListData" parameterType="searchVO"
+		resultType="PostInfoVO">
+		SELECT * FROM TBL_POST_INFO
+	</select>
+
+	<select id="selectListCount" parameterType="searchVO"
+		resultType="int">
+		SELECT COUNT(*) AS TOTCNT FROM TBL_POST_INFO
+	</select>
+	
+	<select id="selectData" parameterType="postInfoVO" resultType="postInfoVO">
+		SELECT POST_TITLE, POST_CONTENT, USERNAME, CATEGORY_ID, TIME_CREATED
+		FROM TBL_POST_INFO
+		WHERE TBL_POST_INFO.POST_ID= #{post_id}
+		LIMIT 1
+	</select>
+
+</mapper>

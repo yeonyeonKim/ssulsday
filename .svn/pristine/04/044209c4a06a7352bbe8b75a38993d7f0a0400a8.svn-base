@@ -1,0 +1,48 @@
+package kr.ssulsday.cms.vo;
+
+public class MapInfoVO {
+	
+	private int dong_id;
+	private int gu_id;
+	private double latitude;
+	private double longitude;
+	private int post_id;
+	private String address;
+	public int getDong_id() {
+		return dong_id;
+	}
+	public void setDong_id(int dong_id) {
+		this.dong_id = dong_id;
+	}
+	public int getGu_id() {
+		return gu_id;
+	}
+	public void setGu_id(int gu_id) {
+		this.gu_id = gu_id;
+	}
+	public double getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+	public double getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+	public int getPost_id() {
+		return post_id;
+	}
+	public void setPost_id(int post_id) {
+		this.post_id = post_id;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+}

@@ -1,0 +1,13 @@
+package kr.ssulsday.cms.service;
+
+import kr.cubex.comm.vo.PagingListVO;
+import kr.cubex.comm.vo.SearchPageVO;
+import kr.cubex.comm.web.CmBaseService;
+import kr.ssulsday.cms.vo.CommentInfoVO;
+import kr.ssulsday.cms.vo.HashtagInfoVO;
+
+public interface HashtagInfoService extends CmBaseService<HashtagInfoVO, SearchPageVO>{
+	
+	PagingListVO selectListPage(SearchPageVO vo) throws Exception;
+
+}

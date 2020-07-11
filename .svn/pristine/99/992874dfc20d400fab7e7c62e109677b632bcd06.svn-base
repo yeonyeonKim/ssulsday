@@ -1,0 +1,68 @@
+package kr.ssulsday.cms.service.impl;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
+import kr.cubex.comm.vo.PagingListVO;
+import kr.cubex.comm.vo.SearchPageVO;
+import kr.ssulsday.cms.mapper.HashtagInfoMapper;
+import kr.ssulsday.cms.service.HashtagInfoService;
+import kr.ssulsday.cms.vo.CommentInfoVO;
+import kr.ssulsday.cms.vo.HashtagInfoVO;
+
+@Service
+public class HastagInfoServiceImpl extends EgovAbstractServiceImpl implements HashtagInfoService {
+
+	// private static final Logger logger = LoggerFactory.getLogger(AdminInfoServiceImpl1.class);
+
+	@Resource
+	private HashtagInfoMapper hashtagInfoMapper;
+
+	@Override
+	public void insertData(HashtagInfoVO vo) throws Exception {
+		hashtagInfoMapper.insertData(vo);
+	}
+
+	@Override
+	public int updateData(HashtagInfoVO vo) throws Exception {
+		return hashtagInfoMapper.updateData(vo);
+	}
+
+	@Override
+	public int deleteData(HashtagInfoVO vo) throws Exception {
+		return hashtagInfoMapper.deleteData(vo);
+	}
+
+	@Override
+	public HashtagInfoVO selectData(HashtagInfoVO vo) throws Exception {
+		return hashtagInfoMapper.selectData(vo);
+	}
+
+	@Override
+	public List<?> selectListData(SearchPageVO vo) throws Exception {
+		return hashtagInfoMapper.selectListData(vo);
+	}
+
+	@Override
+	public int selectListCount(SearchPageVO vo) {
+		return hashtagInfoMapper.selectListCount(vo);
+	}
+
+	@Override
+	public PagingListVO selectListPage(SearchPageVO vo) throws Exception {
+		PagingListVO	lstPageData	= new PagingListVO(vo);
+		
+		List<?> list	= selectListData(vo);
+		int totCnt		= selectListCount(vo);
+		
+		lstPageData.setTotalCount(totCnt);
+		lstPageData.setItems(list);
+		
+		return lstPageData;
+	}
+
+}

@@ -1,0 +1,65 @@
+package kr.ssulsday.cms.service.impl;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
+import kr.cubex.comm.vo.PagingListVO;
+import kr.cubex.comm.vo.SearchPageVO;
+import kr.ssulsday.cms.service.MapInfoService;
+import kr.ssulsday.cms.vo.MapInfoVO;
+import kr.ssulsday.cms.mapper.MapInfoMapper;
+
+@Service
+public class MapInfoServiceImpl extends EgovAbstractServiceImpl implements MapInfoService {
+	
+	@Resource
+	private MapInfoMapper MapInfoMapper;
+
+	@Override
+	public void insertData(MapInfoVO vo) throws Exception {
+		MapInfoMapper.insertData(vo);
+	}
+
+	@Override
+	public int updateData(MapInfoVO vo) throws Exception {
+		return MapInfoMapper.updateData(vo);
+	}
+
+	@Override
+	public int deleteData(MapInfoVO vo) throws Exception {
+		return MapInfoMapper.deleteData(vo);
+	}
+
+	@Override
+	public MapInfoVO selectData(MapInfoVO vo) throws Exception {
+		return MapInfoMapper.selectData(vo);
+	}
+
+	@Override
+	public List<?> selectListData(SearchPageVO vo) throws Exception {
+		return MapInfoMapper.selectListData(vo);
+	}
+
+	@Override
+	public int selectListCount(SearchPageVO vo) {
+		return MapInfoMapper.selectListCount(vo);
+	}
+
+	@Override
+	public PagingListVO selectListPage(SearchPageVO vo) throws Exception {
+		PagingListVO	lstPageData	= new PagingListVO(vo);
+		
+		List<?> list	= selectListData(vo);
+		int totCnt		= selectListCount(vo);
+		
+		lstPageData.setTotalCount(totCnt);
+		lstPageData.setItems(list);
+		
+		return lstPageData;
+	}
+
+}
