@@ -1,6 +1,6 @@
 # ssulsday
 > ssulsday Backend   
-2019.07 ~ 2019.12
+2019.07 ~ 2019.12   
 스웨거: http://15.164.218.21:8080/swagger-ui.html
 ------------
 
